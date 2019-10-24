@@ -2,12 +2,12 @@ package xadrez;
 
 import boardgame.Posicao;
 
-public class XadrexzPosicao {
+public class XadrezPosicao {
 	
 	private char coluna;
 	private int linha;
 	
-	public XadrexzPosicao(char coluna, int linha) {
+	public XadrezPosicao(char coluna, int linha) {
 		if (coluna < 'a' || coluna > 'h' || linha < 1 || linha > 8) {
 			throw new XadrezException("Erro ao instanciar XadrezPosicao. Valores válidos são de a1 até h8");
 		}
@@ -27,8 +27,8 @@ public class XadrexzPosicao {
 		return new Posicao(8 - linha, coluna - 'a');
 	}
 	
-	protected static XadrexzPosicao fromPosicao(Posicao posicao) {
-		return new XadrexzPosicao((char)('a' - posicao.getColuna()), 8 - posicao.getLinha());
+	protected static XadrezPosicao fromPosicao(Posicao posicao) {
+		return new XadrezPosicao((char)('a' - posicao.getColuna()), 8 - posicao.getLinha());
 	}
 	
 	@Override
