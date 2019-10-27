@@ -11,6 +11,7 @@ import xadrez.pecas.Bishop;
 import xadrez.pecas.King;
 import xadrez.pecas.Knight;
 import xadrez.pecas.Pawn;
+import xadrez.pecas.Queen;
 import xadrez.pecas.Rook;
 
 public class PartidaXadrez {
@@ -197,6 +198,7 @@ public class PartidaXadrez {
 		lugarNovaPeca('a', 1, new Rook(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('b', 1, new Knight(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('c', 1, new Bishop(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('d', 1, new Queen(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('e', 1, new King(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('f', 1, new Bishop(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('g', 1, new Knight(tabuleiro, Cor.WHITE));
@@ -213,6 +215,7 @@ public class PartidaXadrez {
 		lugarNovaPeca('a', 8, new Rook(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('b', 8, new Knight(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('c', 8, new Bishop(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('d', 8, new Queen(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('e', 8, new King(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('f', 8, new Bishop(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('g', 8, new Knight(tabuleiro, Cor.BLACK));
