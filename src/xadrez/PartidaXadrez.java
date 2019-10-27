@@ -15,7 +15,8 @@ public class PartidaXadrez {
 	private Tabuleiro tabuleiro;
 	private int turn;
 	private Cor jogadorAtual;
-	private boolean check;	
+	private boolean check;
+	private boolean checkMate;
 	
 	private List<Peca> pecasNaMesa = new ArrayList<>();
 	private List<Peca> pecasCapturadas = new ArrayList<>();
@@ -38,6 +39,10 @@ public class PartidaXadrez {
 	
 	public boolean getCheck() {
 		return check;
+	}
+	
+	public boolean getCheckMate() {
+		return checkMate;
 	}
 	
 	public PecaXadrez[][] getPecas() {
@@ -70,7 +75,13 @@ public class PartidaXadrez {
 		
 		check = (testeCheck(oponente(jogadorAtual))) ? true : false;
 		
-		nextTurn();
+		if (testeCheckMate(oponente(jogadorAtual))) {
+			checkMate = true;
+		}
+		else {
+			nextTurn();
+		}
+		
 		return (PecaXadrez)pecaCapturada;
 	}
 	
@@ -147,13 +158,46 @@ public class PartidaXadrez {
 		return false;
 	}
 	
+	private boolean testeCheckMate(Cor cor) {
+		if (!testeCheck(cor)) {
+			return false;
+		}
+			List<Peca> list = pecasNaMesa.stream().filter(x -> ((PecaXadrez)x).getCor() == cor).collect(Collectors.toList());
+			for (Peca p : list) {
+				boolean[][] mat = p.possibleMoves();
+				for (int i=0; i<tabuleiro.getLinhas(); i++) {
+					for (int j=0; j<tabuleiro.getColunas(); j++) {
+						if (mat[i][j]) {
+							Posicao origem = ((PecaXadrez)p).getXadrezPosicao().toPosicao();
+							Posicao destino = new Posicao(i, j);
+							Peca pecaCapturada = makeMove(origem, destino);
+							boolean testeCheck = testeCheck(cor);
+							undoMove(origem, destino, pecaCapturada);
+							if (!testeCheck) {
+								return false;
+							}
+						}
+					}
+				}
+			}
+			return true;
+		}
+	
 	private void lugarNovaPeca(char coluna, int linha, PecaXadrez peca) {
 		tabuleiro.posicaoPeca(peca, new XadrezPosicao(coluna, linha).toPosicao());
 		pecasNaMesa.add(peca);
 	}
 	
 	private void initialSetup() {
-		lugarNovaPeca('c', 1, new Rook(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('h', 7, new Rook(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('d', 1, new Rook(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('e', 1, new King(tabuleiro, Cor.WHITE));
+
+		lugarNovaPeca('b', 8, new Rook(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('a', 8, new King(tabuleiro, Cor.BLACK));
+		
+		
+		/*lugarNovaPeca('c', 1, new Rook(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('c', 2, new Rook(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('d', 2, new Rook(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('e', 2, new Rook(tabuleiro, Cor.WHITE));
@@ -166,9 +210,10 @@ public class PartidaXadrez {
 		lugarNovaPeca('e', 7, new Rook(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('e', 8, new Rook(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('d', 8, new King(tabuleiro, Cor.BLACK));
-		
-		//tabuleiro.posicaoPeca(new King(tabuleiro, Cor.BLACK), new Posicao(0, 4));
-		//tabuleiro.posicaoPeca(new King(tabuleiro, Cor.WHITE), new Posicao(7, 4));
+		 * 
+		 * 
+		 * tabuleiro.posicaoPeca(new King(tabuleiro, Cor.BLACK), new Posicao(0, 4));
+		//tabuleiro.posicaoPeca(new King(tabuleiro, Cor.WHITE), new Posicao(7, 4));*/
 	}
 
 }
