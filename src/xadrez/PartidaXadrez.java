@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import boardgame.Peca;
 import boardgame.Posicao;
 import boardgame.Tabuleiro;
+import xadrez.pecas.Bishop;
 import xadrez.pecas.King;
 import xadrez.pecas.Pawn;
 import xadrez.pecas.Rook;
@@ -193,7 +194,9 @@ public class PartidaXadrez {
 	
 	private void initialSetup() {
 		lugarNovaPeca('a', 1, new Rook(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('c', 1, new Bishop(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('e', 1, new King(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('f', 1, new Bishop(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('h', 1, new Rook(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('a', 2, new Pawn(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('b', 2, new Pawn(tabuleiro, Cor.WHITE));
@@ -205,7 +208,9 @@ public class PartidaXadrez {
 		lugarNovaPeca('h', 2, new Pawn(tabuleiro, Cor.WHITE));
 
 		lugarNovaPeca('a', 8, new Rook(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('c', 8, new Bishop(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('e', 8, new King(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('f', 8, new Bishop(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('h', 8, new Rook(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('a', 7, new Pawn(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('b', 7, new Pawn(tabuleiro, Cor.BLACK));
