@@ -8,6 +8,7 @@ import boardgame.Peca;
 import boardgame.Posicao;
 import boardgame.Tabuleiro;
 import xadrez.pecas.King;
+import xadrez.pecas.Pawn;
 import xadrez.pecas.Rook;
 
 public class PartidaXadrez {
@@ -191,28 +192,37 @@ public class PartidaXadrez {
 	}
 	
 	private void initialSetup() {
-		lugarNovaPeca('h', 7, new Rook(tabuleiro, Cor.WHITE));
-		lugarNovaPeca('d', 1, new Rook(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('a', 1, new Rook(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('e', 1, new King(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('h', 1, new Rook(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('a', 2, new Pawn(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('b', 2, new Pawn(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('c', 2, new Pawn(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('d', 2, new Pawn(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('e', 2, new Pawn(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('f', 2, new Pawn(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('g', 2, new Pawn(tabuleiro, Cor.WHITE));
+		lugarNovaPeca('h', 2, new Pawn(tabuleiro, Cor.WHITE));
 
-		lugarNovaPeca('b', 8, new Rook(tabuleiro, Cor.BLACK));
-		lugarNovaPeca('a', 8, new King(tabuleiro, Cor.BLACK));
-		
+		lugarNovaPeca('a', 8, new Rook(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('e', 8, new King(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('h', 8, new Rook(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('a', 7, new Pawn(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('b', 7, new Pawn(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('c', 7, new Pawn(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('d', 7, new Pawn(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('e', 7, new Pawn(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('f', 7, new Pawn(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('g', 7, new Pawn(tabuleiro, Cor.BLACK));
+		lugarNovaPeca('h', 7, new Pawn(tabuleiro, Cor.BLACK));
 		
 		/*lugarNovaPeca('c', 1, new Rook(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('c', 2, new Rook(tabuleiro, Cor.WHITE));
-		lugarNovaPeca('d', 2, new Rook(tabuleiro, Cor.WHITE));
-		lugarNovaPeca('e', 2, new Rook(tabuleiro, Cor.WHITE));
-		lugarNovaPeca('e', 1, new Rook(tabuleiro, Cor.WHITE));
 		lugarNovaPeca('d', 1, new King(tabuleiro, Cor.WHITE));
 
 		lugarNovaPeca('c', 7, new Rook(tabuleiro, Cor.BLACK));
-		lugarNovaPeca('c', 8, new Rook(tabuleiro, Cor.BLACK));
-		lugarNovaPeca('d', 7, new Rook(tabuleiro, Cor.BLACK));
-		lugarNovaPeca('e', 7, new Rook(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('e', 8, new Rook(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('d', 8, new King(tabuleiro, Cor.BLACK));
-		 * 
 		 * 
 		 * tabuleiro.posicaoPeca(new King(tabuleiro, Cor.BLACK), new Posicao(0, 4));
 		//tabuleiro.posicaoPeca(new King(tabuleiro, Cor.WHITE), new Posicao(7, 4));*/
