@@ -229,16 +229,6 @@ public class PartidaXadrez {
 		lugarNovaPeca('g', 7, new Pawn(tabuleiro, Cor.BLACK));
 		lugarNovaPeca('h', 7, new Pawn(tabuleiro, Cor.BLACK));
 		
-		/*lugarNovaPeca('c', 1, new Rook(tabuleiro, Cor.WHITE));
-		lugarNovaPeca('c', 2, new Rook(tabuleiro, Cor.WHITE));
-		lugarNovaPeca('d', 1, new King(tabuleiro, Cor.WHITE));
-
-		lugarNovaPeca('c', 7, new Rook(tabuleiro, Cor.BLACK));
-		lugarNovaPeca('e', 8, new Rook(tabuleiro, Cor.BLACK));
-		lugarNovaPeca('d', 8, new King(tabuleiro, Cor.BLACK));
-		 * 
-		 * tabuleiro.posicaoPeca(new King(tabuleiro, Cor.BLACK), new Posicao(0, 4));
-		//tabuleiro.posicaoPeca(new King(tabuleiro, Cor.WHITE), new Posicao(7, 4));*/
 	}
 
 }
